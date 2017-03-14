@@ -1,5 +1,5 @@
 # update aliases
-alias uba='curl -s https://raw.githubusercontent.com/darignac/fx/master/.bash_aliases > ~/.bash_aliases && source ~/.bash_aliases'
+alias uba='curl -s https://raw.githubusercontent.com/miwn02/fx/master/.bash_aliases > ~/.bash_aliases && source ~/.bash_aliases'
 
 # paths
 PATH_GITHUB=$HOME/projects/github
@@ -84,19 +84,6 @@ function git_remove_all_tags() {
     git tag | xargs git push origin --delete && git tag | xargs git tag -d
 }
 
-# svn
-SVN_EDITOR=vim
-alias svn_url="svn info | grep URL: | tr -d 'URL: '"
-alias ss="svn status"
-alias svc="svn commit -m "
-alias svd="svn diff"
-alias svi="svn info"
-alias svm="svn merge"
-alias svmr="svn merge --reintegrate"
-alias svrm="svn rm"
-alias svu="svn up"
-alias svt="svn status"
-
 # virtualenv
 alias da="deactivate"
 alias ae=". .env/bin/activate"
@@ -105,11 +92,11 @@ alias ae=". .env/bin/activate"
 #alias vu="vagrant up"
 function vu() {
     vagrant up $1
-    vagrant ssh -c "curl -s https://raw.githubusercontent.com/darignac/fx/master/.bash_aliases >> ~/.bash_aliases" $1
+    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn02/fx/master/.bash_aliases >> ~/.bash_aliases" $1
 }
 function vu2() {
     vagrant up $1
-    vagrant ssh -c "curl -s https://raw.githubusercontent.com/darignac/fx/master/.bash_aliases >> ~/.bash_aliases" $1
+    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn02/fx/master/.bash_aliases >> ~/.bash_aliases" $1
     vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc" $1
 }
 alias vs="vagrant ssh"
@@ -125,28 +112,9 @@ alias donpy="sudo service postgresql start && sudo service redis-server start"
 alias dofpy="sudo service postgresql stop && sudo service redis-server stop"
 alias nginx_re="sudo service nginx restart"
 
-# mysql
-alias mysql_create_db='function _mysql_cdb(){ echo "CREATE SCHEMA $1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;" | mysql -u root -p; };_mysql_cdb'
-
 # openssl
 alias ssh_key="ssh-keygen -t rsa -b 8192"
 alias ssl_key="openssl genrsa 4096"
 alias ssl_key_rand="openssl dhparam -rand - 2048 >> "
 alias ssl_csr="openssl req -new -sha256 -key"
 alias ssl_cert="openssl x509 -sha256 -req -days 3000 -in domain.csr -signkey key.pem -out"
-
-# android development
-PATH_ADB="$HOME/Android/Sdk/platform-tools"
-alias adb_start_server="sudo $PATH_ADB/adb start-server"
-alias adb_stop_server="sudo $PATH_ADB/adb kill-server"
-alias adb_list="$PATH_ADB/adb devices -l"
-
-# Wordpress
-alias wp_i18n_theme="php $HOME/projects/wordpress-core/tools/i18n/makepot.php wp-theme"
-
-# other stuff
-alias copy_dvd_regionfree="vobcopy -m "
-alias remove_brackets="rename -v 's/\((.*)\)(.*)/$1$2/'"
-alias clam_scan="clamscan / -ir --exclude-dir=^/sys --exclude-dir=^/dev --exclude-dir=^/proc --detect-pua=yes --scan-mail=yes --log=$HOME/clamscan.log"
-alias flac_replaygain="metaflac --add-replay-gain *.flac"
-alias flac_cover_art="metaflac --import-picture-from"
