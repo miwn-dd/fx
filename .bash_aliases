@@ -48,7 +48,22 @@ alias pmmig="pm migrate --all"
 alias rvld="restview --long-description --pypi-strict"
 
 # git
-alias gis="git status"
+alias g="git"
+alias ga="git add"
+alias gaa="git add ."
+alias gb="git branch"
+alias gc="git commit"
+alias gco="git checkout"
+alias gcod="git checkout development"
+alias gd="git diff"
+alias gl="git lg"
+alias gm="git merge"
+alias gf="git fetch"
+alias gpl="git pull --ff"
+alias gp="git push"
+alias gs="git status"
+alias gsta="git stash"
+alias gstap="git stash pop"
 alias gpushom="git push origin master"
 alias gpullom="git pull origin master"
 alias gcm="git commit -m "
@@ -62,7 +77,6 @@ alias gpsd="git push origin development"
 # does not work as evaluated on run time
 #alias gpsoc="git push origin $(git rev-parse --abbrev-ref HEAD)"
 #alias gploc="git pull origin $(git rev-parse --abbrev-ref HEAD)"
-alias gpl="git pull"
 alias gb="git branch -a"
 alias gifm="git config core.fileMode false"
 alias gfo="git fetch origin"
@@ -118,3 +132,17 @@ alias ssl_key="openssl genrsa 4096"
 alias ssl_key_rand="openssl dhparam -rand - 2048 >> "
 alias ssl_csr="openssl req -new -sha256 -key"
 alias ssl_cert="openssl x509 -sha256 -req -days 3000 -in domain.csr -signkey key.pem -out"
+
+#########################
+# Misc
+#########################
+alias ls="ls -l"
+
+#########################
+# CD BACKSLASH SHORTHAND
+#########################
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias dev='cd /cygdrive/c/Develop'
