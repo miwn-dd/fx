@@ -21,6 +21,16 @@ function dci_grep() {
 alias di="docker images"
 alias dps="docker ps -a"
 alias dcp="docker-compose"
+# docker destroy all
+function dda() {
+    # Stop all containers
+    docker stop $(docker ps -a -q)
+    # Delete all containers
+    docker rm $(docker ps -a -q)
+    # Delete all images
+    docker rmi $(docker images -q)
+}
+
 
 # pip
 alias pf="pip freeze"
