@@ -12,6 +12,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # docker
+alias d="docker"
 alias dcc="docker ps -a --no-trunc | grep 'Exit' | awk '{print \$1}' | xargs -r docker rm"
 alias dccc="docker ps -a --no-trunc | grep 'Created' | awk '{print \$1}' | xargs -r docker rm"
 alias dci="docker images --no-trunc | grep none | awk '{print \$3}' | xargs -r docker rmi"
@@ -31,6 +32,9 @@ function dda() {
     docker rmi $(docker images -q)
 }
 
+# docker machine
+alias dm="docker-machine"
+alias dml="docker-machine ls"
 
 # pip
 alias pf="pip freeze"
