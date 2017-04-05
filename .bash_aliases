@@ -35,6 +35,12 @@ function dda() {
 # docker machine
 alias dm="docker-machine"
 alias dml="docker-machine ls"
+alias dms="docker-machine ssh"
+function dms2() {
+    docker-machine ssh $1
+    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" $1
+    vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc" $1
+}
 
 # pip
 alias pf="pip freeze"
