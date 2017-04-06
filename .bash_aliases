@@ -43,6 +43,7 @@ dms2() {
     docker-machine ssh $1 "rm -f .bashrc"
     docker-machine ssh $1 "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
     docker-machine ssh $1 "echo '. .bash_aliases' >> ~/.bashrc"
+    docker-machine ssh $1 "echo '. .bashrc' >> ~/.profile"
 }
 
 # pip
