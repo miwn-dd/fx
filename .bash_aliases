@@ -18,14 +18,14 @@ alias d="docker"
 alias dcc="docker ps -a --no-trunc | grep 'Exit' | awk '{print \$1}' | xargs -r docker rm"
 alias dccc="docker ps -a --no-trunc | grep 'Created' | awk '{print \$1}' | xargs -r docker rm"
 alias dci="docker images --no-trunc | grep none | awk '{print \$3}' | xargs -r docker rmi"
-function dci_grep() {
+dci_grep() {
     docker images --no-trunc | grep $1 | awk '{print $3}' | xargs -r docker rmi
 }
 alias di="docker images"
 alias dps="docker ps -a"
 alias dcp="docker-compose"
 # docker destroy all
-function dda() {
+dda() {
     # Stop all containers
     docker stop $(docker ps -a -q)
     # Delete all containers
@@ -38,7 +38,7 @@ function dda() {
 alias dm="docker-machine"
 alias dml="docker-machine ls"
 alias dms="docker-machine ssh"
-function dms2() {
+dms2() {
     docker-machine ssh $1 "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" $1
     docker-machine ssh $1 "echo '. .bash_aliases' >> ~/.bashrc" $1
 }
@@ -103,20 +103,20 @@ alias gb="git branch -a"
 alias gifm="git config core.fileMode false"
 alias gfo="git fetch origin"
 alias git_initial="touch .gitignore && git add .gitignore && git commit -m 'initial commit' && git branch -m master development && git push origin development"
-function g2d() {
+g2d() {
     git checkout development
     git pull origin development
     git remote prune origin
     git branch -d $1
 }
-function gsw() {
+gsw() {
     git checkout $1
     git pull origin $1
 }
-function git_retag() {
+git_retag() {
     git tag -d $1 && git push origin --delete $1 && git tag $1 && git push origin --tags
 }
-function git_remove_all_tags() {
+git_remove_all_tags() {
     git tag | xargs git push origin --delete && git tag | xargs git tag -d
 }
 
@@ -126,11 +126,11 @@ alias ae=". .env/bin/activate"
 
 # vagrant
 #alias vu="vagrant up"
-function vu() {
+vu() {
     vagrant up $1
     vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" $1
 }
-function vu2() {
+vu2() {
     vagrant up $1
     vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" $1
     vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc" $1
