@@ -39,8 +39,10 @@ alias dm="docker-machine"
 alias dml="docker-machine ls"
 alias dms="docker-machine ssh"
 dms2() {
-    docker-machine ssh $1 "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" $1
-    docker-machine ssh $1 "echo '. .bash_aliases' >> ~/.bashrc" $1
+    docker-machine ssh $1 "rm -f .bash_aliases"
+    docker-machine ssh $1 "rm -f .bashrc"
+    docker-machine ssh $1 "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
+    docker-machine ssh $1 "echo '. .bash_aliases' >> ~/.bashrc"
 }
 
 # pip
