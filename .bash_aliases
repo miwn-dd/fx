@@ -11,6 +11,7 @@ export PATH=$PATH:$HOME/.composer/vendor/bin/
 
 # ansible
 alias a='ansible'
+alias av='a -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory'
 
 
 # list files
@@ -135,19 +136,26 @@ alias ae=". .env/bin/activate"
 # vagrant
 #alias vu="vagrant up"
 vu() {
-    vagrant up $1
-    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" $1
+    for var in "$@"
+    do
+        vagrant up "$var"
+        vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" "$var"
+    done
 }
 vu2() {
-    vagrant up $1
-    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" $1
-    vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc" $1
+    for var in "$@"
+    do
+        vagrant up "$var"
+        vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" "$var"
+        vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc" "$var"
+    done
 }
 alias vs="vagrant ssh"
 alias vd="vagrant destroy"
 alias vr="vagrant reload"
 alias vst="vagrant status"
 alias vh="vagrant halt"
+alias
 
 # services
 alias donph="sudo service nginx start && sudo service mysql start && sudo service php5-fpm start"
