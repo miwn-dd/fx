@@ -136,6 +136,10 @@ alias ae=". .env/bin/activate"
 # vagrant
 #alias vu="vagrant up"
 vu() {
+    vagrant up
+    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
+}
+vum() {
     for var in "$@"
     do
         vagrant up "$var"
@@ -143,6 +147,11 @@ vu() {
     done
 }
 vu2() {
+    vagrant up
+    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
+    vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc"
+}
+vum2() {
     for var in "$@"
     do
         vagrant up "$var"
