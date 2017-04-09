@@ -2,11 +2,16 @@
 
 # update aliases
 alias uba='curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases && source ~/.bash_aliases'
+alias ubal='source ~/code/fx/.bash_aliases'
 
 # paths
 PATH_GITHUB=$HOME/projects/github
 alias to_gh="cd ${PATH_GITHUB}"
 export PATH=$PATH:$HOME/.composer/vendor/bin/
+
+# ansible
+alias a='ansible'
+
 
 # list files
 alias ll='ls -alF'
