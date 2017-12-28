@@ -43,26 +43,6 @@ alias gb="git branch -a"
 alias gifm="git config core.fileMode false"
 alias gfo="git fetch origin"
 alias git_initial="touch .gitignore; and git add .gitignore; and git commit -m 'initial commit'; and git branch -m master development; and git push origin development"
-g2d() {
-    git checkout development
-    git pull origin development
-    git remote prune origin
-    git branch -d $1
-}
-gsw() {
-    git checkout $1
-    git pull origin $1
-}
-git_retag() {
-    git tag -d $1; and git push origin --delete $1; and git tag $1; and git push origin --tags
-}
-git_remove_all_tags() {
-    git tag | xargs git push origin --delete; and git tag | xargs git tag -d
-}
-
-# virtualenv
-alias da="deactivate"
-alias ae=". .env/bin/activate"
 
 # openssl
 alias ssh_key="ssh-keygen -t rsa -b 8192"
