@@ -193,3 +193,18 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias dev='cd /cygdrive/c/Develop'
+
+
+#########################
+# WORK
+#########################
+# vault
+vault_init() {
+    # pull the container and tag it
+    docker pull cookies.azurecr.io/vault:latest
+    docker tag cookies.azurecr.io/vault:latest vault
+}
+
+alias vas='docker run -v `pwd`:/app vault seal'
+alias vau='docker run -v `pwd`:/app vault unseal'
+alias vaup='docker run -v `pwd`:/app vault update-config'
