@@ -4,15 +4,21 @@
 alias uba='curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases && source ~/.bash_aliases'
 alias ubal='source ~/.bash_aliases'
 
-# paths
-PATH_GITHUB=$HOME/projects/github
-alias to_gh="cd ${PATH_GITHUB}"
-export PATH=$PATH:$HOME/.composer/vendor/bin/
+bash_init() {
+    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases
+    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_appearance >> ~/.bash_appearance
+    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.git_prompt.sh >> ~/.git_prompt.sh
+    
+    if ! grep -q "source ~/.bash_appearance" ~/.bashrc; then
+        echo 'source ~/.bash_appearance' >> ~/.bashrc
+    fi
+    
+    if  ! grep -q "source ~/.bash_aliases" ~/.bashrc; then
+        echo 'source ~/.bash_aliases' >> ~/.bashrc
+    fi
 
-# ansible
-alias a='ansible'
-alias av='a -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory'
-
+    source ~/.bashrc
+}
 
 # list files
 alias ll='ls -alF'
