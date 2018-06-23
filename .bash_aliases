@@ -2,7 +2,7 @@
 
 # update aliases
 alias uba='curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases && source ~/.bash_aliases'
-alias ubal='source ~/code/fx/.bash_aliases'
+alias ubal='source ~/.bash_aliases'
 
 # paths
 PATH_GITHUB=$HOME/projects/github
@@ -38,18 +38,6 @@ dda() {
     docker rm $(docker ps -a -q)
     # Delete all images
     docker rmi $(docker images -q)
-}
-
-# docker machine
-alias dm="docker-machine"
-alias dml="docker-machine ls"
-alias dms="docker-machine ssh"
-dms2() {
-    docker-machine ssh $1 "rm -f .bash_aliases"
-    docker-machine ssh $1 "rm -f .bashrc"
-    docker-machine ssh $1 "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
-    docker-machine ssh $1 "echo '. .bash_aliases' >> ~/.bashrc"
-    docker-machine ssh $1 "echo '. .bashrc' >> ~/.profile"
 }
 
 # pip
@@ -146,7 +134,7 @@ vum() {
         vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" "$var"
     done
 }
-vu2() {
+vu_init() {
     vagrant up
     vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
     vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc"
