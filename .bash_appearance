@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # load and configure git prompt
-curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.git-prompt.sh > ~/.git_prompt.sh
+curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.git-prompt.sh > ~/.git-prompt.sh
 
 GIT_PS1_SHOWDIRTYSTATE='y'
 GIT_PS1_SHOWSTASHSTATE='y'
