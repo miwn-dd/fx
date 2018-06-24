@@ -7,7 +7,6 @@ alias ubal='source ~/.bash_aliases'
 bash_init() {
     curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases
     curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_appearance > ~/.bash_appearance
-    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.git_prompt.sh > ~/.git_prompt.sh
     
     if ! grep -q "source ~/.bash_appearance" ~/.bashrc; then
         echo 'source ~/.bash_appearance' >> ~/.bashrc
