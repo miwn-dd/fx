@@ -5,9 +5,9 @@ alias uba='curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_ali
 alias ubal='source ~/.bash_aliases'
 
 bash_init() {
-    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases
-    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_appearance >> ~/.bash_appearance
-    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.git_prompt.sh >> ~/.git_prompt.sh
+    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases
+    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_appearance > ~/.bash_appearance
+    curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.git_prompt.sh > ~/.git_prompt.sh
     
     if ! grep -q "source ~/.bash_appearance" ~/.bashrc; then
         echo 'source ~/.bash_appearance' >> ~/.bashrc
@@ -131,25 +131,25 @@ alias ae=". .env/bin/activate"
 #alias vu="vagrant up"
 vu() {
     vagrant up
-    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
+    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases"
 }
 vum() {
     for var in "$@"
     do
         vagrant up "$var"
-        vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" "$var"
+        vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases" "$var"
     done
 }
 vu_init() {
     vagrant up
-    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases"
+    vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases"
     vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc"
 }
 vum2() {
     for var in "$@"
     do
         vagrant up "$var"
-        vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases >> ~/.bash_aliases" "$var"
+        vagrant ssh -c "curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases" "$var"
         vagrant ssh -c "echo '. .bash_aliases' >> ~/.bashrc" "$var"
     done
 }
