@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias sudo='sudo '
+
 # update aliases
 alias uba='curl -s https://raw.githubusercontent.com/miwn-dd/fx/master/.bash_aliases > ~/.bash_aliases && source ~/.bash_aliases'
 alias ubal='source ~/.bash_aliases'
