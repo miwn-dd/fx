@@ -18,12 +18,13 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM="$HOME/.fx/zsh/custom"
 
 zstyle ':completion:*' special-dirs true
 
 plugins=(
   git
+  zsh-update
 )
 
 source $ZSH/oh-my-zsh.sh
