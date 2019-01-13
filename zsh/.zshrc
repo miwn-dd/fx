@@ -23,7 +23,6 @@ ZSH_CUSTOM="$HOME/.fx/zsh/custom"
 zstyle ':completion:*' special-dirs true
 
 plugins=(
-  git
   zsh-update
 )
 
