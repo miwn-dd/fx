@@ -24,6 +24,7 @@ zstyle ':completion:*' special-dirs true
 
 plugins=(
   git
+  zsh-nvm
   zsh-update
 )
 
